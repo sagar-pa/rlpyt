@@ -2,7 +2,7 @@ import setuptools
 
 INSTALL_REQUIRES = [
     "gym>=0.20",
-    "torch>=1.9.1"
+    "torch>=1.9.1",
     "numpy",
     "pandas",
     "tqdm",
