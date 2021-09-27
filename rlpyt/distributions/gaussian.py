@@ -238,7 +238,7 @@ class Gaussian(Distribution):
         """
         if std is not None:
             if not isinstance(std, torch.Tensor):
-                std = torch.tensor(std).float()  # Can be size == 1 or dim.
+                std = torch.as_tensor(std).float()  # Can be size == 1 or dim.
             # Used to have, but shape of std should broadcast everywhere needed:
             # if std.numel() == 1:
             #     std = std * torch.ones(self.dim).float()  # Make it size dim.

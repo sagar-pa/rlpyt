@@ -108,7 +108,7 @@ class BaseUlAlgorithm(UlAlgorithm):
     def activation_loss(self, conv_output):
         """Rarely if ever used this."""
         if getattr(self, "activation_loss_coefficient", 0.) == 0.:
-            return torch.tensor(0., device=self.device)
+            return torch.as_tensor(0., device=self.device)
         # Only penalize above 1 (conv_output is after ReLU).
         large_x = torch.clamp(conv_output.view(-1) - 1, min=0.)
         # Gentle squared-magnitude loss, l2-like

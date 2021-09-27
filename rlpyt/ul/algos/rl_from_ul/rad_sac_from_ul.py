@@ -126,7 +126,7 @@ class RadSacFromUl(RlAlgorithm):
             lr=self.q_lr, betas=(self.q_beta, 0.999),
         )
 
-        self._log_alpha = torch.tensor(np.log(self.alpha_init),
+        self._log_alpha = torch.as_tensor(np.log(self.alpha_init),
             requires_grad=True)
         self._alpha = torch.exp(self._log_alpha.detach())
         self.alpha_optimizer = self.OptimCls((self._log_alpha,),

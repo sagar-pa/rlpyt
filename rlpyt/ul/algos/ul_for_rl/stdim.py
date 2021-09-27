@@ -161,8 +161,8 @@ class STDIM(BaseUlAlgorithm):
         valid = valid[self.delta_T:].reshape(-1)
         labels[~valid] = IGNORE_INDEX
 
-        gg_loss, gl_loss, ll_loss = [torch.tensor(0., device=self.device)] * 3
-        gg_accuracy, gl_accuracy, ll_accuracy = [torch.tensor(0., device=self.device)] * 3
+        gg_loss, gl_loss, ll_loss = [torch.as_tensor(0., device=self.device)] * 3
+        gg_accuracy, gl_accuracy, ll_accuracy = [torch.as_tensor(0., device=self.device)] * 3
         if self.use_global_global:
             gg_logits = self.gg_contrast(c_anchor, c_positive)
             gg_loss = self.c_e_loss(gg_logits, labels)

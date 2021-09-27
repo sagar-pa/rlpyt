@@ -181,7 +181,7 @@ class CPC(BaseUlAlgorithm):
 
         # Before cat, to isolate delta_t for diagnostic accuracy check later:
         dt_lengths = [0] + [len(label) for label in label_list]
-        dtb = torch.cumsum(torch.tensor(dt_lengths), dim=0)  # delta_t_boundaries
+        dtb = torch.cumsum(torch.as_tensor(dt_lengths), dim=0)  # delta_t_boundaries
 
         # Total number of predictions: P = T*(T-1)/2*B
         # from: \sum_{dt=1}^T ((T-dt) * B)

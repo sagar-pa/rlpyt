@@ -116,8 +116,8 @@ class SAC(RlAlgorithm):
             self.alpha_optimizer = self.OptimCls((self._log_alpha,),
                 lr=self.learning_rate, **self.optim_kwargs)
         else:
-            self._log_alpha = torch.tensor([np.log(self.fixed_alpha)])
-            self._alpha = torch.tensor([self.fixed_alpha])
+            self._log_alpha = torch.as_tensor([np.log(self.fixed_alpha)])
+            self._alpha = torch.as_tensor([self.fixed_alpha])
             self.alpha_optimizer = None
         if self.target_entropy == "auto":
             self.target_entropy = -np.prod(self.agent.env_spaces.action.shape)
@@ -300,9 +300,9 @@ class SAC(RlAlgorithm):
         opt_info.q1Loss.append(q1_loss.item())
         opt_info.q2Loss.append(q2_loss.item())
         opt_info.piLoss.append(pi_loss.item())
-        opt_info.q1GradNorm.append(torch.tensor(q1_grad_norm).item())  # backwards compatible
-        opt_info.q2GradNorm.append(torch.tensor(q2_grad_norm).item())  # backwards compatible
-        opt_info.piGradNorm.append(torch.tensor(pi_grad_norm).item())  # backwards compatible
+        opt_info.q1GradNorm.append(torch.as_tensor(q1_grad_norm).item())  # backwards compatible
+        opt_info.q2GradNorm.append(torch.as_tensor(q2_grad_norm).item())  # backwards compatible
+        opt_info.piGradNorm.append(torch.as_tensor(pi_grad_norm).item())  # backwards compatible
         opt_info.q1.extend(q1[::10].numpy())  # Downsample for stats.
         opt_info.q2.extend(q2[::10].numpy())
         opt_info.piMu.extend(pi_mean[::10].numpy())

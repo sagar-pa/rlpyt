@@ -302,7 +302,7 @@ class CppoPID(PolicyGradientAlgo):
             if self.lagrange_quadratic_penalty:
                 quad_loss = (self.quadratic_penalty_coeff
                     * valid_mean(c_surrogate, valid)
-                    * torch.max(torch.tensor(0.), self._ep_cost_ema - self.cost_limit))
+                    * torch.max(torch.as_tensor(0.), self._ep_cost_ema - self.cost_limit))
                 pi_loss += quad_loss
 
         loss = pi_loss + value_loss + entropy_loss

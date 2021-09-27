@@ -56,8 +56,8 @@ class EpsilonGreedyAgentMixin:
                 env_ranks = list(set([i // 2 for i in env_ranks]))
             self.eps_init = self._eps_init_scalar * torch.ones(len(env_ranks))
             global_eps_final = torch.logspace(
-                torch.log10(torch.tensor(self.eps_final_min)),
-                torch.log10(torch.tensor(self._eps_final_scalar)),
+                torch.log10(torch.as_tensor(self.eps_final_min)),
+                torch.log10(torch.as_tensor(self._eps_final_scalar)),
                 global_B)
             self.eps_final = global_eps_final[env_ranks]
         self.eps_sample = self.eps_init
