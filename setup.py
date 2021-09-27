@@ -1,8 +1,8 @@
 import setuptools
 
 INSTALL_REQUIRES = [
-    "gym>=0.20",
-    "torch>=1.9.1"
+    "gym>=0.17,<0.20",
+    "torch>=1.9.1",
     "numpy",
     "pandas",
     "tqdm",
@@ -10,11 +10,11 @@ INSTALL_REQUIRES = [
     "atari-py",
     "opencv-python",
     "psutil",
-    "PyPrind"
+    "PyPrind",
 ]
 TEST_REQUIRES = [
     # testing and coverage
-    'pytest', 'coverage', 'pytest-cov',
+    'pytest', 'coverage', 'pytest-cov', 'tensorboard>=2.2.0', 
 ]
 
 setuptools.setup(

@@ -18,7 +18,7 @@ from rlpyt.runners.minibatch_rl import MinibatchRlEval
 from rlpyt.utils.logging.context import logger_context
 
 
-def build_and_train(env_id="Hopper-v3", run_ID=0, cuda_idx=None):
+def build_and_train(env_id="MountainCarContinuous-v0", run_ID=0, cuda_idx=None):
     sampler = SerialSampler(
         EnvCls=gym_make,
         env_kwargs=dict(id=env_id),
@@ -50,7 +50,7 @@ def build_and_train(env_id="Hopper-v3", run_ID=0, cuda_idx=None):
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('--env_id', help='environment ID', default='Hopper-v3')
+    parser.add_argument('--env_id', help='environment ID', default='MountainCarContinuous-v0')
     parser.add_argument('--run_ID', help='run identifier (logging)', type=int, default=0)
     parser.add_argument('--cuda_idx', help='gpu to use ', type=int, default=None)
     args = parser.parse_args()
