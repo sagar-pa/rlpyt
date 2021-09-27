@@ -73,30 +73,19 @@ This package does not include its own visualization, as the logged data is compa
 
 
 ## Installation
+Install directly with:
+```bash
+pip install git+https://github.com/sagar-pa/rlpyt.git
+```
+
+OR
 
 1.  Clone this repository to the local machine.
 
 2. Install the anaconda environment appropriate for the machine.
-```
-conda env create -f linux_[cpu|cuda9|cuda10].yml
-source activate rlpyt
-```
 
-3. Either A) Edit the PYTHONPATH to include the rlpyt directory, or
-          B) Install as editable python package
 ```
-#A
-export PYTHONPATH=path_to_rlpyt:$PYTHONPATH
-
-#B
-pip install -e .
-```
-
-4. Install any packages / files pertaining to desired environments (e.g. gym, mujoco).  Atari is included.
-
-Hint: for easy access, add the following to your `~/.bashrc` (might substitute `conda` for `source`).
-```
-alias rlpyt="source activate rlpyt; cd path_to_rlpyt"
+pip install -e .[extra]
 ```
 
 ## Extended Notes
