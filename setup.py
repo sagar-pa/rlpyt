@@ -11,10 +11,11 @@ INSTALL_REQUIRES = [
     "opencv-python",
     "psutil",
     "PyPrind",
+    "tensorboard>=2.2.0",
 ]
 TEST_REQUIRES = [
     # testing and coverage
-    'pytest', 'coverage', 'pytest-cov', 'tensorboard>=2.2.0', 
+    'pytest', 'coverage', 'pytest-cov',  
 ]
 
 setuptools.setup(
@@ -26,7 +27,7 @@ setuptools.setup(
     long_description=open('README.md').read(),
     install_requires=INSTALL_REQUIRES,
     extras_require={
-        'extra': TEST_REQUIRES + INSTALL_REQUIRES,
+        'test': TEST_REQUIRES + INSTALL_REQUIRES,
     },
 
 )
