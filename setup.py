@@ -7,7 +7,7 @@ INSTALL_REQUIRES = [
     "pandas",
     "tqdm",
     "scipy",
-    "atari-py==0.2.6",
+    "atari-py==0.2.9",
     "pillow",
     "opencv-python",
     "psutil",
