@@ -215,6 +215,8 @@ class ParallelSamplerBase(BaseSampler):
                 eval_env_kwargs=self.eval_env_kwargs,
                 eval_max_T=self.eval_max_T,
                 eval_traj_infos_queue=self.eval_traj_infos_queue,
+                eval_env_preprocess=self.eval_env_preprocess,
+                eval_env_preprocess_args_generator=self.eval_env_preprocess_args_generator
                 )
             )
         return common_kwargs

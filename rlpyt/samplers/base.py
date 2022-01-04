@@ -1,5 +1,6 @@
 
 
+from typing import Callable
 from rlpyt.samplers.collections import BatchSpec, TrajInfo, Samples
 from rlpyt.utils.quick_args import save__init__args
 
@@ -38,6 +39,8 @@ class BaseSampler:
             eval_env_kwargs=None,
             eval_max_steps=None,  # int if using evaluation.
             eval_max_trajectories=None,  # Optional earlier cutoff.
+            eval_env_preprocess: Callable = None,
+            eval_env_preprocess_args_generator: Callable = None
             ):
         eval_max_steps = None if eval_max_steps is None else int(eval_max_steps)
         eval_max_trajectories = (None if eval_max_trajectories is None else

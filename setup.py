@@ -7,7 +7,8 @@ INSTALL_REQUIRES = [
     "pandas",
     "tqdm",
     "scipy",
-    "atari-py",
+    "atari-py==0.2.6",
+    "pillow",
     "opencv-python",
     "psutil",
     "PyPrind",
@@ -20,7 +21,7 @@ TEST_REQUIRES = [
 
 setuptools.setup(
     name='rlpyt',
-    version='0.1.3',
+    version='0.1.4',
     python_requires='>=3.8',
     packages=setuptools.find_packages(),
     license='MIT License',
