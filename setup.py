@@ -1,15 +1,17 @@
 import setuptools
 
 INSTALL_REQUIRES = [
-    "gym>=0.17,<0.20",
+    "gym==0.21",
     "torch>=1.9.1",
     "numpy",
     "pandas",
     "tqdm",
     "scipy",
-    "atari-py==0.2.9",
-    "pillow",
     "opencv-python",
+    # For atari games,
+    "ale-py~=0.7.4",
+    "autorom[accept-rom-license]~=0.4.2",
+    "pillow",
     "psutil",
     "PyPrind",
     "tensorboard>=2.2.0",
