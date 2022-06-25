@@ -23,7 +23,7 @@ TEST_REQUIRES = [
 
 setuptools.setup(
     name='rlpyt',
-    version='0.1.4',
+    version='0.1.5',
     python_requires='>=3.8',
     packages=setuptools.find_packages(),
     license='MIT License',

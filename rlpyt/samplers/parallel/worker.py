@@ -89,12 +89,9 @@ def sampling_process(common_kwargs, worker_kwargs):
         if ctrl.quit.value:
             break
         if ctrl.do_eval.value:
-            if c.get("eval_env_preprocess", None) is not None:
-                for eval_env in eval_envs:
-                    env_method=getattr(eval_env.env, c.get("eval_env_preprocess", None))
-                    arg_generator = c.get("eval_env_preprocess_args_generator", None)
-                    args = arg_generator(ctrl.itr.value)
-                    env_method(args)
+            if c.get("on_eval_callback", None) is not None:
+                callback = c.get("on_eval_callback", None)
+                callback()
             eval_collector.collect_evaluation(ctrl.itr.value)  # Traj_infos to queue inside.
         else:
             agent_inputs, traj_infos, completed_infos = collector.collect_batch(
